@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <a>Inventory tracking</a>
+    </div>
+
+    <div class="header-right">
+        <a href="http://localhost:3005/home">Home</a>
+    </div>
+
+    <div class="signupForm">
+        <form action="http://localhost:3005/logout" method="POST" class="form">
+            <h2></h2>
+            <br><br>
+            <input type="submit" value="Logout" class="submit">
+            <input type="button" class="submit" id="item-list" onclick="location.href='http://localhost:3005/itemlist'"
+                value="My Items">
+            <input type="button" class="submit" id="search-item"
+                onclick="location.href='http://localhost:3005/searchitem'" value="Search item">
+        </form>
+    </div>
+
+    <footer>© 2022 by Gabriel</footer>
+
+</body>
+<script>
+    const fetchResponse = {
+        handleResponse(response) {
+            if (response.userLogged == true) {
+                const h2 = document.querySelector('h2');
+                h2.innerText = `Welcome ${response.userName}`;
+                if (response.userRole == "manager") {
+                    const searchitem = document.getElementById("search-item");
+                    searchitem.style.display = "none";
+                    searchitem.style.visibility = "hidden";
+                } else {
+                    const itemList = document.getElementById("item-list");
+                    itemList.style.display = "none";
+                    itemList.style.visibility = "hidden";
+                }
+            }
+        }
+    }
+
+    fetch("http://localhost:3005/auth")
+        .then(response => response.json())
+        .then(data => {
+            fetchResponse.handleResponse(data)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+</script>
+
+</html>

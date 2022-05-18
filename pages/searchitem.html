@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <a>Inventory tracking</a>
+    </div>
+
+    <div class="header-right">
+        <a href="http://localhost:3005/home">Home</a>
+    </div>
+
+    <div id="divBack" class="signupForm2">
+        <div>
+            <form class="form">
+                <h2>Search item</h2>
+                <h4 id="done"></h4>
+
+                <div class="inputContainer">
+                    <input type="text" name="name" class="input" placeholder="Name: ">
+                    <label for="name" class="label"></label>
+                </div>
+
+                <div class="inputContainer">
+                    <input type="text" name="model_id" class="input" placeholder="Model ID: ">
+                    <label for="model_id" class="label"></label>
+                </div>
+
+                <div class="inputContainer">
+                    <input type="text" name="color" class="input" placeholder="Color: ">
+                    <label for="color" class="label"></label>
+                </div>
+
+                <div class="inputContainer">
+                    <input type="text" name="weight" class="input" placeholder="Weight: ">
+                    <label for="weight" class="label"></label>
+                </div>
+
+                <div class="inputContainerOptions">
+                    <select id="description" name="description" class="inputOptions" placeholder="Description: "
+                        required>
+                        <option disabled value="" selected>Description:</option>
+                        <option disabled>Choose...</option>
+                        <option value="School supply">School supply</option>
+                        <option value="Gardening">Gardening</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Dishware">Dishware</option>
+                    </select>
+                    <label for="description" class="label"></label>
+                </div>
+
+                <br><br><br><br>
+
+                <div>
+                    <div class="BtnsLeft">
+                        <input type="button" class="submit" onclick="location.href='http://localhost:3005/home'"
+                            value="Cancel">
+                        <input type="submit" value="Search item" class="submit" id="searchitem">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>© 2022 by Gabriel</footer>
+
+</body>
+<script>
+    const form = document.querySelector('.form');
+
+
+    const httpResponse = {
+        handleResponse(response) {
+            if (response.success == true) {
+                alert(response.message);
+                window.location.replace("http://localhost:3005/filtereditem");
+            } else {
+                alert(response.message);
+            }
+        }
+    }
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const url = "http://localhost:3005/filter";
+        const filteritem = {}
+        Array.from(form.elements).forEach((input) => {
+            if (input.value != "" && input.name) {
+                filteritem[String(input.name)] = input.value;
+            }
+        });
+
+        if (Object.keys(filteritem).length === 0) {
+            filteritem.noFilter = "all";
+        }
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(filteritem),
+        }).then(response => response.json())
+            .then(data => {
+                httpResponse.handleResponse(data);
+            })
+            .catch((error) => {
+                httpResponse.handleResponse(error);
+            })
+    });
+</script>
+
+</html>

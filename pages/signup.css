@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Piazzolla&display=swap');
+
+* {
+  font-family: 'Quicksand';
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.signupForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signupForm2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120vh;
+}
+
+.form {
+  background-color: white;
+  width: 407px;
+  border-radius: 8px;
+  padding: 20px 40px;
+  box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+.title {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.inputContainer {
+  position: relative;
+  height: 45px;
+  width: 90%;
+  margin-bottom: 17px;
+}
+
+.inputContainerOptions {
+  position: relative;
+  height: 45px;
+  width: 100%;
+  margin-bottom: 17px;
+}
+
+.input {
+
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #DADCE0;
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 0 20px;
+}
+
+.inputOptions {
+
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #DADCE0;
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 0 20px;
+  color: #7f7f7f;
+}
+
+.submit {
+  margin-left: auto;
+  padding: 15px 30px;
+  border: none;
+  background-color: rgb(39, 39, 39);
+  color: white;
+  border-radius: 6px;
+  font-size: 16px;
+  margin: 10px 5px 0 5px;
+  transition: 0.2s;
+  width: 47%;
+  justify-content: center;
+  display: inline;
+  text-align: center;
+}
+
+.submit:hover {
+  background-color: #7f7f7f;
+  cursor: pointer;
+}
+
+.submitDel {
+  margin-left: auto;
+  padding: 5px 10px;
+  border: none;
+  background-color: rgb(39, 39, 39);
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+  margin: 5px 5px 0 5px;
+  transition: 0.2s;
+  width: 50%%;
+  justify-content: center;
+  display: inline;
+  text-align: center;
+}
+
+.submitDel:hover {
+  background-color: #7f7f7f;
+  cursor: pointer;
+}
+
+.Btns {
+  text-align: center;
+}
+
+::placeholder {
+  color: #7f7f7f;
+  z-index: 2;
+}
+
+h3 {
+  color: red;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 20px 5px 20px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+
+/***** Table style *****/
+.tablediv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+th {
+  padding: 15px;
+  height: 100px;
+  background-color: rgb(255, 255, 255);
+  cursor: default;
+}
+
+td {
+  padding: 15px;
+  height: 50px;
+  text-align: center;
+}
+
+tr {
+  transition: 0.15s;
+}
+
+tr:hover {
+  background-color: rgb(247, 247, 247);
+  cursor: pointer;
+}
+
+/**** Header *****/
+
+.header {
+  position: fixed;
+  padding: 20px 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+
+.header-right {
+  position: fixed;
+  font-size: 18px;
+  color: black;
+  right: 0;
+  padding: 20px 20px;
+
+
+}
+
+.header-right a:hover {
+  background-color: rgb(39, 39, 39);
+  color: white;
+  cursor: pointer;
+}
+
+/***** Footer *****/
+
+footer {
+  position: fixed;
+  padding: 10px;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: rgb(80, 80, 80);
+  font-size: .8em;
+  text-align: center;
+  border-top: 2px solid rgba(128, 128, 128, 0.26);
+}
+/* Pop-up  */
+
+
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}

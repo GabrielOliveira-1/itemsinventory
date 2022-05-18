@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="signup.css">
+  <title>Filtered items</title>
+</head>
+
+<body>
+
+  <div class="header">
+    <a>Inventory tracking</a>
+  </div>
+
+  <div class="header-right">
+    <a href="http://localhost:3005/home">Home</a>
+    <a href="http://localhost:3005/searchitem">Search item</a>
+  </div>
+
+  <div class="tablediv">
+    <table>
+      <thead>
+        <tr>
+          <th>Model ID</th>
+          <th>Name</th>
+          <th>Color</th>
+          <th>Weight</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody data-modal-target="#modal">
+      </tbody>
+    </table>
+  </div>
+
+  <footer>© 2022 by Gabriel</footer>
+  <!-- <button data-modal-target="#modal">Open Modal</button> -->
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">Example Modal</div>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+      This page is under construction and will be available as soon as possible. 🚧
+    </div>
+  </div>
+  <div id="overlay"></div>
+
+</body>
+<script>
+  function updateView() {
+    const fetchResponse = {
+      handleResponse(items) {
+        const tbody = document.querySelector('tbody');
+        tbody.innerHTML = "";
+        items.forEach((item) => {
+
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+                        <td>${item.model_id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.color}</td>
+                        <td>${item.weight}</td>
+                        <td>${item.description}</td>
+                    `;
+          tbody.appendChild(tr);
+        });
+      }
+    };
+
+    fetch("http://localhost:3005/getfiltereditems")
+      .then(response => response.json())
+      .then(data => {
+        fetchResponse.handleResponse(data)
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }
+
+  updateView();
+
+  const openModalButtons = document.querySelectorAll('[data-modal-target]')
+  const closeModalButtons = document.querySelectorAll('[data-close-button]')
+  const overlay = document.getElementById('overlay')
+
+  openModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = document.querySelector(button.dataset.modalTarget)
+      openModal(modal)
+    })
+  })
+
+  overlay.addEventListener('click', () => {
+    const modals = document.querySelectorAll('.modal.active')
+    modals.forEach(modal => {
+      closeModal(modal)
+    })
+  })
+
+  closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal')
+      closeModal(modal)
+    })
+  })
+
+  function openModal(modal) {
+    if (modal == null) return
+    modal.classList.add('active')
+    overlay.classList.add('active')
+  }
+
+  function closeModal(modal) {
+    if (modal == null) return
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
+  }
+</script>
+
+</html>

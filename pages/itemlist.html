@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <a>Inventory tracking</a>
+    </div>
+
+    <div class="header-right">
+        <a href="http://localhost:3005/home">Home</a>
+        <a href="http://localhost:3005/additem">Add item</a>
+    </div>
+
+    <div class="tablediv">
+        <table>
+            <thead>
+                <tr>
+                    <th>Model ID</th>
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th>Weight</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>© 2022 by Gabriel</footer>
+
+</body>
+<script>
+    function removeitem(itemIndex) {
+        fetch("http://localhost:3005/deleteitem", {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                index: itemIndex
+            }),
+        }).then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch((error) => {
+                alert(error);
+            })
+        updateView();
+    }
+
+    function updateView() {
+        const fetchResponse = {
+            handleResponse(items) {
+                const tbody = document.querySelector('tbody');
+                tbody.innerHTML = "";
+                items.forEach((item, index) => {
+
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${item.model_id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.color}</td>
+                        <td>${item.weight}</td>
+                        <td>${item.description}</td>
+                        <td onclick="removeitem(${index})"><button class="submitDel">Delete</button></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }
+        };
+
+        fetch("http://localhost:3005/getitemlist")
+            .then(response => response.json())
+            .then(data => {
+                fetchResponse.handleResponse(data)
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+    }
+
+    updateView();
+</script>
+
+</html>

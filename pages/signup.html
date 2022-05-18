@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+
+   <div class="header">
+      <a>Inventory tracking</a>
+   </div>
+
+   <div id="divBack" class="signupForm">
+      <form action="http://localhost:3005/user" method="POST" class="form">
+
+         <h2 class="tittle">User Registration Form</h2>
+
+         <div class="inputContainer">
+            <input type="text" name="name" class="input" placeholder="Name: ">
+            <label for="name" class="label"></label>
+         </div>
+
+         <div class="inputContainer">
+            <input type="text" name="phone" class="input" placeholder="Phone: ">
+            <label for="phone" class="label"></label>
+         </div>
+
+         <div class="inputContainer">
+            <input type="text" name="email" class="input" placeholder="Email: ">
+            <label for="email" class="label"></label>
+         </div>
+
+         <div class="inputContainerOptions">
+            <select id="role" name="role" class="inputOptions" required placeholder="Registration Type: ">
+               <option disabled selected>Choose...</option>
+               <option value="manager">Manager</option>
+               <option value="client">Client</option>
+            </select>
+            <label for="role" class="label"></label>
+         </div>
+
+         <div class="inputContainer">
+            <input type="password" name="password" class="input" placeholder="Password: ">
+            <label for="password" class="label"></label>
+         </div>
+
+         <div class="Btns">
+            <input type="button" class="submit" onclick="location.href='http://localhost:3005/login'" value="Login">
+            <input type="submit" value="Register" class="submit">
+         </div>
+   </div>
+
+   <footer>© 2022 by Gabriel</footer>
+
+</body>
+
+</html>

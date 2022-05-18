@@ -1,0 +1,199 @@
+{
+  "user": [
+    {
+      "userID": 1,
+      "name": "School Seller",
+      "phone": "0123456789",
+      "email": "ssupply@hotmail.com",
+      "role": "manager",
+      "items": [
+        {
+          "name": "Scissor",
+          "model_id": "12",
+          "color": "Red",
+          "weight": "12g",
+          "description": "School supply"
+        },
+        {
+          "name": "Pencil",
+          "model_id": "13",
+          "color": "Green",
+          "weight": "7g",
+          "description": "School supply"
+        },
+        {
+          "name": "Eraser",
+          "model_id": "14",
+          "color": "Grey",
+          "weight": "30g",
+          "description": "School supply"
+        },
+        {
+          "name": "Sharpener",
+          "model_id": "15",
+          "color": "Silver",
+          "weight": "70g",
+          "description": "School supply"
+        }
+      ],
+      "password": "1234"
+    },
+    {
+      "userID": 2,
+      "name": "Garden FlowerZ SA",
+      "phone": "9876543210",
+      "email": "gardenz@hotmail.com",
+      "role": "manager",
+      "items": [
+        {
+          "name": "Hand Trowel",
+          "model_id": "16",
+          "color": "Blue",
+          "weight": "250g",
+          "description": "Gardening"
+        },
+        {
+          "name": "Secateurs",
+          "model_id": "17",
+          "color": "Red",
+          "weight": "230g",
+          "description": "Gardening"
+        },
+        {
+          "name": "Hoe",
+          "model_id": "18",
+          "color": "Brown",
+          "weight": "3kg",
+          "description": "Gardening"
+        },
+        {
+          "name": "Fork",
+          "model_id": "19",
+          "color": "Orange",
+          "weight": "230g",
+          "description": "Gardening"
+        },
+        {
+          "name": "Hedge Shears",
+          "model_id": "20",
+          "color": "Yellow",
+          "weight": "1kg",
+          "description": "Gardening"
+        }
+      ],
+      "password": "1234"
+    },
+    {
+      "userID": 3,
+      "name": "House Fur Co.",
+      "phone": "4567891230",
+      "email": "housefur@hotmail.com",
+      "role": "manager",
+      "items": [
+        {
+          "name": "Chair",
+          "model_id": "22",
+          "color": "Brown",
+          "weight": "8kg",
+          "description": "Furniture"
+        },
+        {
+          "name": "Table High",
+          "model_id": "22",
+          "color": "Brown",
+          "weight": "20kg",
+          "description": "Furniture"
+        },
+        {
+          "name": "Floor lamp",
+          "model_id": "23",
+          "color": "Light Beige",
+          "weight": "10kg",
+          "description": "Furniture"
+        },
+        {
+          "name": "Sofa",
+          "model_id": "24",
+          "color": "Dark grey",
+          "weight": "60kg",
+          "description": "Furniture"
+        },
+        {
+          "name": "Arm Chair",
+          "model_id": "24",
+          "color": "Dark Grey",
+          "weight": "25kg",
+          "description": "Furniture"
+        }
+      ],
+      "password": "1234"
+    },
+    {
+      "userID": 4,
+      "name": "Dish Porcelain Lmtd",
+      "phone": "1237894560",
+      "email": "dish@hotmail.com",
+      "role": "manager",
+      "items": [
+        {
+          "name": "Flower plate",
+          "model_id": "30",
+          "color": "White and pink",
+          "weight": "200g",
+          "description": "Dishware"
+        },
+        {
+          "name": "Flower cup",
+          "model_id": "30",
+          "color": "White and pink",
+          "weight": "100g",
+          "description": "Dishware"
+        },
+        {
+          "name": "Fork",
+          "model_id": "31",
+          "color": "Silver",
+          "weight": "20g",
+          "description": "Dishware"
+        },
+        {
+          "name": "Knife",
+          "model_id": "31",
+          "color": "Silver",
+          "weight": "20g",
+          "description": "Dishware"
+        },
+        {
+          "name": "Spoon",
+          "model_id": "31",
+          "color": "Silver",
+          "weight": "22g",
+          "description": "Dishware"
+        },
+        {
+          "name": "Square plate",
+          "model_id": "32",
+          "color": "Black and white",
+          "weight": "200g",
+          "description": "Dishware"
+        },
+        {
+          "name": "Abstract cup",
+          "model_id": "32",
+          "color": "Black and white",
+          "weight": "100g",
+          "description": "Dishware"
+        }
+      ],
+      "password": "1234"
+    },
+    {
+      "userID": 5,
+      "name": "Jon Doe",
+      "phone": "1234567890",
+      "email": "jondoe@hotmail.com",
+      "role": "client",
+      "password": "1234"
+    }
+  ]
+}
